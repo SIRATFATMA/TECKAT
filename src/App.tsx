@@ -1,37 +1,10 @@
-import {useEffect, useState } from "react";
-import "./App.css";
-function App() {
-  const [data, setData] = useState<number>(0);
-  const[numberData,setNumberData] = useState<number>(0);
+import React from 'react'
+import AppRoute from './AppRoute'
 
-
-  useEffect(() => {
-addData();
-  },[numberData])
-
-  const addData = () => {
-    const oldData = data;
-    const newData = oldData + 1;
-    setData(newData);
-    console.log(newData);
-  };
-    
-const decrementData=()=>{
-  setNumberData(numberData-1);
-
-};
+const App = () => {
   return (
-    <>
-      <button title="title" onClick={addData}>
-      
-         add Data
-         </button>
-
-         <div>Increment Data: {data}</div>
-         <br/>
-  <button onClick={decrementData}>decrement</button>
-<div>decrement Data: {numberData}</div>
-</>
-  );
+    <><AppRoute/></>
+  )
 }
-export default App;
+
+export default App
