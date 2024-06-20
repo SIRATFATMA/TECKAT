@@ -11,18 +11,29 @@ const CreateStudent: React.FC = () => {
     formState: { errors },
   } = useForm<IStudent>({ mode: "all" });
 
-  const createNewStudent = (data: IStudent) => {
-    console.log(data);
+   const createNewStudent = (data: IStudent) => {
+    let students: IStudent[] = [];
 
-    // const students: IStudent[] = JSON.parse(
-    //   localStorage.getItem("students") as string
-    // );
-    // data._id = (students.length + 1).toString();
-
-    // students.push(data);
-    // localStorage.setItem("students", JSON.stringify(students));
-    // navigate("/student/student-details");
+    const newStudent = JSON.parse(localStorage.getItem("students") as string);
+    if (newStudent) {
+      data._id = (students.length + 1).toString();
+      students = newStudent;
+    } else {
+      data._id = (0).toString();
+    }
+    students.push(data);
+    localStorage.setItem("students", JSON.stringify(students));
+    navigate("/student");
   };
+ /* const students: IStudent[] = JSON.parse(
+     localStorage.getItem("students") as string
+    );
+     data._id = (students.length + 1).toString();
+
+    students.push(data);
+    localStorage.setItem("students", JSON.stringify(students));
+    navigate("/student/student-details");
+  };**/
   return (
     <>
       <div className="create_student_section">
