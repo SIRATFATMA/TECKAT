@@ -15,7 +15,7 @@ const Student:React.FC = () => {
   return (
     <>
     <button title="Create Student">
-      <Link to="/student/create-student">/Create Student </Link>
+    <Link to="/student/create-student">/Create Student </Link>
       </button>
       <br />
       <hr />
